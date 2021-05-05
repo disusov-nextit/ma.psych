@@ -10,7 +10,7 @@
         <v-card
           hover
           link
-          :to="{ name: 'article-article', params: { article: article.slug } }"
+          :to="{ name: 'articles-articles', params: { articles: article.slug } }"
         >
           <v-img
             class="white--text align-end"

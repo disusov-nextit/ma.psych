@@ -40,8 +40,8 @@
                 text
                 link
                 :to="{
-                  name: 'article-article',
-                  params: { article: prev.slug },
+                  name: 'articles-articles',
+                  params: { articles: prev.slug },
                 }"
               >
                 <v-icon left>mdi-page-previous-outline</v-icon>
@@ -53,8 +53,8 @@
                 text
                 link
                 :to="{
-                  name: 'article-article',
-                  params: { article: next.slug },
+                  name: 'articles-articles',
+                  params: { articles: next.slug },
                 }"
               >
                 <v-icon left>mdi-page-next-outline</v-icon>
@@ -84,12 +84,13 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const article = await $content('articles', params.article).fetch()
+    const slug = params.articles
+    const article = await $content('articles', slug).fetch()
 
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
       .sortBy('createdAt', 'asc')
-      .surround(params.article)
+      .surround(slug)
       .fetch()
 
     return {
