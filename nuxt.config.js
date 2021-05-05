@@ -44,6 +44,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    'nuxt-robots-module',
+    '@nuxtjs/sitemap'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -70,6 +72,7 @@ export default {
 
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    dev: false,
   },
 
   publicRuntimeConfig: {
@@ -80,5 +83,14 @@ export default {
 
   generate: {
     fallback: true,
+    crawler: true
+  },
+
+  robots: {
+    /* module options */
+  },
+
+  sitemap: {
+    hostname: process.env.BASE_URL,
   }
 }
