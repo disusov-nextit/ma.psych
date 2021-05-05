@@ -9,7 +9,20 @@
             "port": 9222,
             "request": "attach",
             "type": "pwa-chrome",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/dist"
         },
+        {
+            "command": "npm generate",
+            "name": "Run npm run generate",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npm start",
+            "name": "Run npm start",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+
     ]
 }
