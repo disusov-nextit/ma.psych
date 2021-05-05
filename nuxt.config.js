@@ -2,7 +2,6 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  mode: 'universal',
   target: 'static',
   ssr: true,
 
@@ -43,8 +42,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
   ],
@@ -52,16 +49,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en',
-    },
-  },
-
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
-    liveEdit: true
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -79,11 +68,6 @@ export default {
     optimizeImagesInDev: true,
   },
 
-  server: {
-    port: 3000, // default: 3000
-    host: '0.0.0.0', // default: localhost,
-  },
-
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
   },
@@ -95,6 +79,6 @@ export default {
   },
 
   generate: {
-    crawler: true
-  },
+    fallback: true,
+  }
 }
