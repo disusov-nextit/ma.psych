@@ -1,34 +1,32 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" app>
-      <v-toolbar-title v-text="title" class="green--text"/>
+    <v-app-bar :clipped-left="clipped" elevation="2" app>
       <v-spacer />
       <v-btn icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
         <v-icon>mdi-invert-colors</v-icon>
       </v-btn>
-      <v-menu offset-y>
-        <template #activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
-
-        <v-list>
-          <v-list-item v-for="(item, i) in items" :key="i" link :to="item.to">
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <v-tabs class="pl-2">
+        <v-tab link to="/">Статии</v-tab>
+      </v-tabs>
     </v-app-bar>
+    <v-btn
+      v-scroll="onScroll"
+      v-show="fab"
+      fab
+      fixed
+      bottom
+      right
+      @click="toTop"
+    >
+      <v-icon>mdi-chevron-up</v-icon>
+    </v-btn>
     <v-main>
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }} Malina Atanasova</span>
+      <span>&copy; {{ new Date().getFullYear() }} Малина Атанасова</span>
     </v-footer>
   </v-app>
 </template>
@@ -37,24 +35,38 @@
 export default {
   data() {
     return {
+      fab: false,
       clipped: true,
       drawer: false,
       fixed: true,
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Home',
+          title: 'Статии',
           to: '/',
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'Articles',
-          to: '/articles',
         },
       ],
       right: true,
-      title: 'Psychology Explorer',
+      title: 'Малинини Светове',
     }
+  },
+  methods: {
+    onScroll(e) {
+      if (typeof window === undefined) return
+
+      const top = window.pageYOffset || e.target.scrollTop || 0
+
+      this.fab = top > 20
+    },
+    toTop() {
+      const options = {
+        duration: 300,
+        offset: 0,
+        easing: 'easeInCubic',
+      }
+
+      this.$vuetify.goTo(0, options)
+    },
   },
 }
 </script>

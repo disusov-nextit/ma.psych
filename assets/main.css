@@ -1,51 +1,49 @@
+html {
+    font-family: Quicksand, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    line-height: 1.5;
+}
+
 .overlayed {
     background: rgba(0, 0, 0, 0.6);
 }
 
 .nuxt-content {
-    font-size: 1.5em;
+    font-size: 1rem;
+    
+    font-family: "Roboto", serif;
 }
 
 .nuxt-content p {
     text-indent: 1em;
-}
-
-.ludwig {
-    position: relative;
-    padding-left: 1em;
-    border-left: 0.2em solid #4d91b3;
-    font-family: "Roboto", serif;
-    font-style:italic;
     line-height: 1.5em;
-    font-weight: 100;
-    width:60%;
-    text-indent: 1em;
 }
 
-.ludwig:before {
-    font-size:4em;
-    position: absolute;
-    left: -0.3em;
-    top: 0.2em;
-    content: "\201C";
-    font-family: "Sanchez";
-    color: #4d91b3;
+.nuxt-content h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
-.ludwig::after{
-    content: '';
-  }
-  
+blockquote {
+    padding-left: 1em;
+    position: relative;
+    max-width: 60%;
+    /* margin:  auto 1em; */
+    font-style: italic;
+    font-weight: 300;
+    /* border-left: 0.2em solid #4d91b3; */
+}
 
-.ludwig footer {
-    display:block;
-    color:#333333;
+blockquote footer:before {
+    /* content: '- '; */
+}
+
+blockquote footer {
     font-style: normal;
-    font-weight: bold;
-    margin-top:1em;
-
-    font-family: "Noto Sans", sans-serif;
-    font-size: 0.6em;
+    font-size: 0.8em;
     font-weight: 700;
-    color: #d3d3cf;
+    padding-left: 1em;
+    opacity: 0.9;
 }
