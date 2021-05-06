@@ -28,7 +28,7 @@
                 ></v-progress-circular>
               </v-row>
             </template>
-            <v-card-title class="overlayed" v-text="article.title">
+            <v-card-title class="overlayed" style="word-break: break-word;" v-text="article.title">
             </v-card-title>
           </v-img>
 

@@ -18,7 +18,7 @@
                 ></v-progress-circular>
               </v-row>
             </template>
-            <v-card-title class="overlayed" v-text="article.title">
+            <v-card-title class="overlayed" style="word-break: break-word;" v-text="article.title">
             </v-card-title>
           </v-img>
 
@@ -46,7 +46,7 @@
                 }"
               >
                 <v-icon left>mdi-page-previous-outline</v-icon>
-                {{ prev.title }}
+                <span class="d-inline-block text-truncate" style="max-width: 250px">{{ prev.title }}</span>
               </v-btn>
               <v-spacer></v-spacer>
               <v-btn
@@ -59,7 +59,7 @@
                 }"
               >
                 <v-icon left>mdi-page-next-outline</v-icon>
-                {{ next.title }}
+                <span class="d-inline-block text-truncate" style="max-width: 250px">{{ next.title }}</span>
               </v-btn>
             </v-row>
           </v-card-text>
