@@ -34,7 +34,7 @@
 
           <v-card-subtitle>
             <v-row no-gutters>
-              <v-col>{{ formatDate(article.updatedAt) }}</v-col>
+              <v-col>{{ formatDate(article.createdAt) }}</v-col>
               <v-spacer></v-spacer>
               <v-col cols="auto"
                 ><ReadTime :content="article"></ReadTime
@@ -93,7 +93,7 @@ export default {
     },
     async fetchArticles(page) {
       return await this.$content('articles')
-        .sortBy('created_at', 'desc')
+        .sortBy('createdAt', 'desc')
         .limit(this.perPage)
         .skip(this.perPage * (page - 1))
         .fetch()

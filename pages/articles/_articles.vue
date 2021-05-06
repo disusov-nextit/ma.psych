@@ -24,7 +24,7 @@
 
           <v-card-subtitle class="light-gray--text">
             <v-row no-gutters>
-              <v-col>{{ formatDate(article.updatedAt) }}</v-col>
+              <v-col>{{ formatDate(article.createdAt) }}</v-col>
               <v-spacer></v-spacer>
               <v-col cols="auto"
                 ><ReadTime :content="article"></ReadTime
