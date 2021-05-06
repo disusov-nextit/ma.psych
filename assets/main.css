@@ -26,6 +26,10 @@ html {
     padding-top: 0.5em;
 }
 
+.nuxt-content ul {
+    padding-bottom: 1em;
+}
+
 blockquote {
     padding-left: 1em;
     position: relative;
