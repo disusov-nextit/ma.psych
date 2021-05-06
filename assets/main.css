@@ -26,7 +26,7 @@ html {
     padding-top: 0.5em;
 }
 
-.nuxt-content ul {
+.nuxt-content ul, .nuxt-content ol {
     padding-bottom: 1em;
 }
 
