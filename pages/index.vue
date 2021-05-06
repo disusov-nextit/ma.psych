@@ -10,12 +10,15 @@
         <v-card
           hover
           link
-          :to="{ name: 'articles-articles', params: { articles: article.slug } }"
+          :to="{
+            name: 'articles-articles',
+            params: { articles: article.slug },
+          }"
         >
           <v-img
             class="white--text align-end"
             max-height="300px"
-            :src="randomImage(article.slug)"
+            :src="articleImage(article)"
           >
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
@@ -80,8 +83,10 @@ export default {
     this.fetchData()
   },
   methods: {
-    randomImage(slug) {
-      return `https://picsum.photos/1920/1024?random&_v=${slug}`
+    articleImage(article) {
+      return article.img !== undefined
+        ? require(`~/assets/img/${article.img}`)
+        : `https://picsum.photos/1920/500?random`
     },
     async fetchData() {
       this.articles = await this.fetchArticles(this.page)

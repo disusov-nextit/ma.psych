@@ -6,7 +6,8 @@
           <v-img
             class="white--text align-end"
             max-height="500px"
-            :src="articleImage"
+            min-height="300px"
+            :src="articleImage(article)"
             :alt="article.alt"
           >
             <template v-slot:placeholder>
@@ -104,14 +105,12 @@ export default {
       areActionsVisible: true,
     }
   },
-  computed: {
-    articleImage: {
-      get() {
-        return this.article.img || 'https://picsum.photos/1920/500?random'
-      },
-    },
-  },
   methods: {
+    articleImage(article) {
+      return article.img !== undefined
+        ? require(`~/assets/img/${article.img}`)
+        : `https://picsum.photos/1920/500?random`
+    },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
